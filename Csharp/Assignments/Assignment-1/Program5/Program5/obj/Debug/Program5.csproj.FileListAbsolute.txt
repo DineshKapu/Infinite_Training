@@ -1,0 +1,6 @@
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program5\Program5\bin\Debug\Program5.exe.config
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program5\Program5\bin\Debug\Program5.exe
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program5\Program5\bin\Debug\Program5.pdb
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program5\Program5\obj\Debug\Program5.csproj.CoreCompileInputs.cache
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program5\Program5\obj\Debug\Program5.exe
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program5\Program5\obj\Debug\Program5.pdb
