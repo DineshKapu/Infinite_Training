@@ -1,0 +1,7 @@
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program1\Program1\bin\Debug\Program1.exe.config
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program1\Program1\bin\Debug\Program1.exe
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program1\Program1\bin\Debug\Program1.pdb
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program1\Program1\obj\Debug\Program1.csproj.AssemblyReference.cache
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program1\Program1\obj\Debug\Program1.csproj.CoreCompileInputs.cache
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program1\Program1\obj\Debug\Program1.exe
+C:\Infinite_Training\Csharp\Assignments\Assignment-1\Program1\Program1\obj\Debug\Program1.pdb
