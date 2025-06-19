@@ -1,0 +1,7 @@
+C:\Infinite_Training\Csharp\Assignments\Assignment-2\StringsPrograms\StringsPrograms\bin\Debug\StringsPrograms.exe.config
+C:\Infinite_Training\Csharp\Assignments\Assignment-2\StringsPrograms\StringsPrograms\bin\Debug\StringsPrograms.exe
+C:\Infinite_Training\Csharp\Assignments\Assignment-2\StringsPrograms\StringsPrograms\bin\Debug\StringsPrograms.pdb
+C:\Infinite_Training\Csharp\Assignments\Assignment-2\StringsPrograms\StringsPrograms\obj\Debug\StringsPrograms.csproj.AssemblyReference.cache
+C:\Infinite_Training\Csharp\Assignments\Assignment-2\StringsPrograms\StringsPrograms\obj\Debug\StringsPrograms.csproj.CoreCompileInputs.cache
+C:\Infinite_Training\Csharp\Assignments\Assignment-2\StringsPrograms\StringsPrograms\obj\Debug\StringsPrograms.exe
+C:\Infinite_Training\Csharp\Assignments\Assignment-2\StringsPrograms\StringsPrograms\obj\Debug\StringsPrograms.pdb
