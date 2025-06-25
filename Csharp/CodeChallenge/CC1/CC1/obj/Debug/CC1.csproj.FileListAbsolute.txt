@@ -1,0 +1,7 @@
+C:\Infinite_Training\Csharp\CodeChallenge\CC1\CC1\bin\Debug\CC1.exe.config
+C:\Infinite_Training\Csharp\CodeChallenge\CC1\CC1\bin\Debug\CC1.exe
+C:\Infinite_Training\Csharp\CodeChallenge\CC1\CC1\bin\Debug\CC1.pdb
+C:\Infinite_Training\Csharp\CodeChallenge\CC1\CC1\obj\Debug\CC1.csproj.AssemblyReference.cache
+C:\Infinite_Training\Csharp\CodeChallenge\CC1\CC1\obj\Debug\CC1.csproj.CoreCompileInputs.cache
+C:\Infinite_Training\Csharp\CodeChallenge\CC1\CC1\obj\Debug\CC1.exe
+C:\Infinite_Training\Csharp\CodeChallenge\CC1\CC1\obj\Debug\CC1.pdb
