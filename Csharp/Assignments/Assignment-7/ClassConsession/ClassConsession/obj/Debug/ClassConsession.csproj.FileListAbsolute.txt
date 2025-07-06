@@ -1,0 +1,5 @@
+C:\Infinite_Training\Csharp\Assignments\Assignment-7\ClassConsession\ClassConsession\bin\Debug\ClassConsession.dll
+C:\Infinite_Training\Csharp\Assignments\Assignment-7\ClassConsession\ClassConsession\bin\Debug\ClassConsession.pdb
+C:\Infinite_Training\Csharp\Assignments\Assignment-7\ClassConsession\ClassConsession\obj\Debug\ClassConsession.csproj.CoreCompileInputs.cache
+C:\Infinite_Training\Csharp\Assignments\Assignment-7\ClassConsession\ClassConsession\obj\Debug\ClassConsession.dll
+C:\Infinite_Training\Csharp\Assignments\Assignment-7\ClassConsession\ClassConsession\obj\Debug\ClassConsession.pdb
