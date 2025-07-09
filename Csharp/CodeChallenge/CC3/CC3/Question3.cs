@@ -31,6 +31,7 @@ namespace CC3
         {
             FileStream fs = new FileStream(@"C:\Infinite_Training\Csharp\CodeChallenge\CC3\CC3\NewFile.txt", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
+            Console.WriteLine("The Contents in this File:");
             string str = sr.ReadLine();
             while (str != null)
             {

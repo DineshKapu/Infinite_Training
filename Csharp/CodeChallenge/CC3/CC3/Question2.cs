@@ -67,7 +67,7 @@ namespace CC3
                 Console.WriteLine("Box 3=> (Sum of Box 1 and Box 2):");
                 Box3.Display();
                 //Box Box4 = null;
-                //var Box5 = Box.Add(Box3, Box4);
+                //var Box5 = Box.AddBoxes(Box3, Box4);
                 //Box5.Display(); //For Dispalying Error Message
 
             }
