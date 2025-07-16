@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CC3.Question3</StartupObject>
+    <StartupObject>CC3.Question4</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
