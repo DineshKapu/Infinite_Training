@@ -65,45 +65,41 @@ DATEADD (year, -5, getdate());
 --Query-4:
 --4.	Create table Employee with empno, ename, sal, doj columns or 
 --use your emp table and perform the following operations in a single transaction
+--a. First insert 3 rows 
+--	b. Update the second row sal with 15% increment  
+--        c. Delete first row.
+--After completing above all actions, recall the deleted row without losing increment of second row.
 
-create table tblemployee
-(
 
-   empno int primary key,
-   ename varchar(20),
-   sal float,
-   DOJ date
+
+CREATE TABLE Employee (
+    empno INT PRIMARY KEY,
+    ename VARCHAR(50),
+    sal DECIMAL(10,2),
+    doj DATE
 );
 
---Query-4-a:
-  --a. First insert 3 rows 
-begin tran
+BEGIN TRANSACTION;
 
-insert into tblemployee values (1,'Dinesh',50000,'2025-06-03'),
+Insert into Employee values (1,'Dinesh',50000,'2025-06-03'),
                                  (2,'Jaya Vardhan',60000,'2025-06-05'),
                                  (3,'Manohar',70000,'2025-06-07');
-select * from tblemployee
-commit;
+select * from Employee;
 
 
---Query-4-b:
---b. Update the second row sal with 15% increment 
-begin tran
-update tblemployee set sal = sal*1.15 where empno = 2;
-select * from tblemployee 
-commit
+UPDATE Employee SET sal = sal * 1.15 WHERE empno = 2;
+select * from Employee;
+SAVE TRANSACTION t1;
+
+DELETE FROM Employee WHERE empno = 1;
+select * from Employee
 
 
-----Query-4-c:
---Delete first row.
---After completing above all actions, 
---recall the deleted row without losing increment of second row.  
-begin tran
-delete from tblemployee where empno = 1;
-select * from tblemployee where empno = 1;
-rollback;
-select * from tblemployee;
+ROLLBACK TRANSACTION t1;
 
+
+COMMIT TRANSACTION;
+select * from Employee;
 
 --Query-5
 --Create a user defined function calculate Bonus for all employees of a  given dept using 	following conditions
