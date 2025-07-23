@@ -82,7 +82,7 @@ begin tran
 insert into tblemployee values (1,'Dinesh',50000,'2025-06-03'),
                                  (2,'Jaya Vardhan',60000,'2025-06-05'),
                                  (3,'Manohar',70000,'2025-06-07');
---select * from tblemployee
+select * from tblemployee
 commit;
 
 
@@ -90,7 +90,7 @@ commit;
 --b. Update the second row sal with 15% increment 
 begin tran
 update tblemployee set sal = sal*1.15 where empno = 2;
---select * from tblemployee 
+select * from tblemployee 
 commit
 
 
@@ -153,7 +153,7 @@ begin
 end;
 GO
 exec UpdateSalesSalary;
---select * from tblemp;
+select * from tblemp;
 --To show the updated salary of employees whose DEPTNO=30 and
 --sal<1500
 select * from tblemp where DEPTNO=30;
