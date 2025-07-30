@@ -1,0 +1,7 @@
+C:\Infinite_Training\ADO\CodeChallenge\CC1\ADO-CC1\ADO-CC1\bin\Debug\ADO-CC1.exe.config
+C:\Infinite_Training\ADO\CodeChallenge\CC1\ADO-CC1\ADO-CC1\bin\Debug\ADO-CC1.exe
+C:\Infinite_Training\ADO\CodeChallenge\CC1\ADO-CC1\ADO-CC1\bin\Debug\ADO-CC1.pdb
+C:\Infinite_Training\ADO\CodeChallenge\CC1\ADO-CC1\ADO-CC1\obj\Debug\ADO-CC1.csproj.AssemblyReference.cache
+C:\Infinite_Training\ADO\CodeChallenge\CC1\ADO-CC1\ADO-CC1\obj\Debug\ADO-CC1.csproj.CoreCompileInputs.cache
+C:\Infinite_Training\ADO\CodeChallenge\CC1\ADO-CC1\ADO-CC1\obj\Debug\ADO-CC1.exe
+C:\Infinite_Training\ADO\CodeChallenge\CC1\ADO-CC1\ADO-CC1\obj\Debug\ADO-CC1.pdb
