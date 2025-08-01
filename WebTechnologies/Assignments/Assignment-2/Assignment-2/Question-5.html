@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Virat Kohli Tribute</title>
+    <style>
+        :root {
+            --bg-color: #f0f4f8;
+            --text-color: #333;
+            --section-bg: #ffffff;
+            --highlight: #1e88e5;
+        }
+
+        body.dark-mode {
+            --bg-color: #1c1c1c;
+            --text-color: #eeeeee;
+            --section-bg: #2c2c2c;
+            --highlight: #90caf9;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .main-section {
+            background-color: var(--section-bg);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flex-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+            .flex-box img {
+                max-width: 200px;
+                border-radius: 10px;
+                flex-shrink: 0;
+            }
+
+        .description {
+            flex: 1;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            transition: transform 0.3s;
+        }
+
+            li:hover {
+                transform: scale(1.05);
+                color: var(--highlight);
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        tr:hover {
+            background-color: rgba(30, 136, 229, 0.1);
+            box-shadow: inset 0 0 5px var(--highlight);
+        }
+
+        th {
+            background-color: #e3f2fd;
+            color:black;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--highlight);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(30,136,229,0.4);
+        }
+        .name-virat {
+            color: red;
+            transition: color 0.3s ease;
+        }
+
+        .name-kohli {
+            color: black;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .name-virat {
+            color: var(--highlight);
+        }
+
+        body.dark-mode .name-kohli {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">🌙 Toggle Mode</button>
+    <div class="container">
+
+        <div class="main-section">
+            <h1>
+                <span class="name-virat">Virat</span> <span class="name-kohli">Kohli</span>
+            </h1>
+
+            <div class="flex-box">
+                <img src="viratkohli.webp" alt="Virat Kohli">
+                <div class="description">
+                    <ul>
+                        <li>Virat Kohli is one of the most celebrated cricketers in the world. Known for his fierce competitiveness, elegant stroke play, and unmatched consistency, he has redefined modern cricket.</li>
+                        <li>  Born in Delhi in 1988, Kohli rose through the ranks with his performance in the U-19 World Cup and quickly became a cornerstone of Indian cricket. His leadership and fitness revolutionized the team’s culture.</li>
+                        <li>
+                            Kohli is admired for his resilience and mental strength. Whether bouncing back from form slumps or leading India through high-pressure matches, his ability to stay focused and deliver has earned him global respect.
+                        </li>
+                        <li>
+                            Married to Bollywood actress Anushka Sharma, Kohli’s off-field presence is just as impactful. Together, they’ve championed causes like animal welfare and mental health, making him a role model beyond cricket.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-section">
+            <h2>🏆 Achievements</h2>
+            <ul>
+                <li>ICC Cricketer of the Year: 2017, 2018</li>
+                <li>ICC ODI Player of the Year: 2012, 2017, 2018, 2023</li>
+                <li>Padma Shri (2017) & Rajiv Gandhi Khel Ratna (2018)</li>
+                <li>Most centuries in ODI history (51)</li>
+                <li>Led India to Test series win in Australia (2018–19)</li>
+                <li>Winner of 2011 World Cup, 2013 & 2025 Champions Trophy, 2024 T20 World Cup</li>
+                <li>Fastest to 8k, 9k, 10k, 11k, and 12k ODI runs</li>
+                <li>First player to score 50 ODI centuries</li>
+            </ul>
+        </div>
+
+
+        <div class="main-section">
+            <h2>📊 Career Statistics</h2>
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Matches</th>
+                    <th>Runs</th>
+                    <th>Average</th>
+                    <th>100s</th>
+                    <th>50s</th>
+                    <th>Top Score</th>
+                </tr>
+                <tr>
+                    <td>Test</td>
+                    <td>123</td>
+                    <td>9,230</td>
+                    <td>46.85</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td>254*</td>
+                </tr>
+                <tr>
+                    <td>ODI</td>
+                    <td>302</td>
+                    <td>14,181</td>
+                    <td>57.88</td>
+                    <td>51</td>
+                    <td>74</td>
+                    <td>183</td>
+                </tr>
+                <tr>
+                    <td>T20I</td>
+                    <td>125</td>
+                    <td>4,188</td>
+                    <td>48.70</td>
+                    <td>1</td>
+                    <td>38</td>
+                    <td>122*</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
