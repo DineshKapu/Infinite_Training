@@ -34,7 +34,7 @@ namespace Miniproject
         static void Login(string expectedRole)
         {
             Console.Write($"Enter {expectedRole} username: ");
-            string username = Console.ReadLine().ToLower();
+            string username = Console.ReadLine();
             Console.Write("Enter password: ");
             string password = Console.ReadLine();
 
@@ -47,7 +47,7 @@ namespace Miniproject
             else if (role == "user")
             {
                 Console.WriteLine($"Login successful. Welcome, {username} (User) | User ID: {userid}");
-                UserMenu(userid.Value); // Pass userid to UserMenu
+                UserMenu(userid.Value); 
             }
             else
             {
@@ -130,7 +130,7 @@ namespace Miniproject
 
         static void UserMenu(int userid)
         {
-            DisplayTrainDetails(); // Show trains after login
+            DisplayTrainDetails();
 
             while (true)
             {
@@ -396,7 +396,7 @@ namespace Miniproject
 
                     Console.WriteLine("Booking successful.");
 
-                    // Show booking details
+                
                     SqlCommand lastBookingCmd = new SqlCommand("SELECT TOP 1 * FROM Bookings WHERE userid = @userid ORDER BY booking_id DESC", con);
                     lastBookingCmd.Parameters.AddWithValue("@userid", userid);
                     SqlDataReader bookingReader = lastBookingCmd.ExecuteReader();
