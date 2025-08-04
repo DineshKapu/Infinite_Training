@@ -11,6 +11,9 @@
             font-family: 'Trebuchet MS', sans-serif;
             padding: 20px;
         }
+        div{
+            text-align:center;
+        }
 
         input, button {
             padding: 10px;
@@ -84,28 +87,16 @@
             .delete-btn:hover {
                 background-color: #ec407a;
             }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
     </style>
 
 </head>
 <body style="background-image: url('beach.jpg'); background-size: cover; background-attachment: fixed; color: #006064;">
-
+    <div>
     <h2>☀️ To-Do List 🐚</h2>
     <input id="taskInput" type="text" placeholder="Enter a task" />
     <button onclick="addTask()">Add Task</button>
     <button onclick="clearAll()">Clear All</button>
+    </div>
     <ul id="taskList"></ul>
 
     <script>
