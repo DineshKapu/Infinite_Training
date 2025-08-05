@@ -20,13 +20,15 @@ namespace Miniproject
                 Console.WriteLine("Welcome to the Railway Reservation System");
                 Console.WriteLine("1. Login as Admin");
                 Console.WriteLine("2. Login as User");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("3. Register as new User");
+                Console.WriteLine("4. Exit");
                 Console.Write("Enter your choice: ");
                 int choice = Convert.ToInt32(Console.ReadLine());
 
                 if (choice == 1) Login("admin");
                 else if (choice == 2) Login("user");
-                else if (choice == 3) break;
+                else if (choice == 3) RegisterUser();
+                else if (choice == 4) break;
                 else Console.WriteLine("Invalid choice. Try again.");
             }
         }
@@ -78,6 +80,33 @@ namespace Miniproject
                 }
             }
         }
+
+
+        static void RegisterUser()
+        {
+            Console.Write("Enter Username: ");
+            string username = Console.ReadLine();
+
+            Console.Write("Enter Password: ");
+            string password = Console.ReadLine();
+
+            string role = "user"; // default role
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO Users (username, password, roles) VALUES (@username, @password, @roles)", con);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@roles", role);
+
+                con.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                con.Close();
+
+                Console.WriteLine(rowsAffected > 0 ? "Registration successful. You can now login." : "Registration failed.");
+            }
+        }
+
 
         static void DisplayTrainDetails()
         {

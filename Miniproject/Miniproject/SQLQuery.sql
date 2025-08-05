@@ -13,7 +13,7 @@ INSERT INTO Users VALUES
 ('kala','kala@123','user')
 
 select * from Users
-
+delete from Users where userid=8
 CREATE TABLE Trains (
     tno INT PRIMARY KEY,
     tname VARCHAR(50),
