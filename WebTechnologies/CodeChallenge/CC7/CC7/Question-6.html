@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!--6. Write a jQuery Code to get a single element from a selection.
+Sample:
+<body>
+<ui>
+<li>CSHARP</li>
+<li>SQL</li>
+<li>ADO</li>
+</body>-->
+<head>
+    <meta charset="utf-8" />
+    <title>To Get a Single Element</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+    <script src="https://googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Indexing Starts From '0'</h2>
+    <ul>
+        <li>CSHARP</li>
+        <li>SQL</li>
+        <li>ADO</li>
+        <li>Web Technologies</li>
+    </ul>
+    Enter Index:<input type="number" id="itemIndex" min="0" max="3" />
+    <button id="changeColor">Change Color</button>
+
+    <script>
+        //$(document).ready(function () {
+        //    // Select the first item
+        //    var firstItem = $('li').first();
+        //    firstItem.css('color', 'red');
+        //    var firstItem = $('li').last();
+        //    firstItem.css('color', 'green');
+        //    var item1 = $('li').get(2); //indexing starts from the zero
+        //    $(item1).css('color', 'orange');
+        //});
+
+            $(document).ready(function () {
+                $('#changeColor').click(function () {
+                    var i = $('#itemIndex').val();
+                    var item = $('li').get(i);
+                    if (item) {
+                        $(item).css('color', 'red');
+                    } else {
+                        alert('Invalid index! Please enter a number between 0 and 3.');
+                    }
+                });
+        });
+
+    </script>
+
+</body>
+</html>

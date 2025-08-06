@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!--3. Write a JavaScript program that creates a button and add a click
+event listener to log a message when it's clicked. -->
+<head>
+    <meta charset="utf-8" />
+    <title>Button</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        #myButton {
+            background-color: rgb(154 11 149);
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+            #myButton:hover {
+                background-color: rgb(212 172 31);
+            }
+    </style>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function () {
+            console.log("Hii Dinesh !Welcome to Web Technologies");
+        });
+    </script>
+</body>
+</html>

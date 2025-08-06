@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E2B15567-3745-42CB-9C87-7B7BF834AB00}</ProjectGuid>
+    <ProjectGuid>{AEC91D31-C000-4B14-AD8A-523CC23B6528}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>JS_Form_Validation_Assignment</RootNamespace>
-    <AssemblyName>JS_Form_Validation_Assignment</AssemblyName>
+    <RootNamespace>CC7</RootNamespace>
+    <AssemblyName>CC7</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,7 +50,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FormValidation.html" />
+    <Content Include="Question-1.html" />
+    <Content Include="Question-2.html" />
+    <Content Include="Question-3.html" />
+    <Content Include="Question-4.html" />
+    <Content Include="Question-5.html" />
+    <Content Include="Question-6.html" />
+    <Content Include="Question-7.html" />
+    <Content Include="Question-8.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

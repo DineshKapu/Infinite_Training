@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!--5. Find all h1 elements that are children of a div element and apply a
+background to them.-->
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+    <script src="https://googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Question-5</title>
+</head>
+<body>
+    <div>
+        <h1>This will be Effected</h1>
+        <h2>This won't be Effected</h2>
+        <h1>This will be Effected</h1>
+    </div>
+    <h1>This won't be Effected because it is outside the div</h1>
+    <script>
+        $(document).ready(function () {
+            $('div > h1').css('background-color', 'lightskyblue');
+        });
+
+    </script>
+</body>
+</html>

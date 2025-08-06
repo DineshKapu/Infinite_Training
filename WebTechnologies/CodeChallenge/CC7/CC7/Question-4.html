@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!--4. Use and write the correct selector to hide all odd table rows in a table.  -->
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+    <script src="https://googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Hiding all odd table rows</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+
+        #btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: forestgreen;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>Hiding table odd Rows</h3>
+    <table border="1">
+        <tr><td>Row 1</td></tr>
+        <tr><td>Row 2</td></tr> 
+        <tr><td>Row 3</td></tr> 
+        <tr><td>Row 4</td></tr>
+    </table>
+    <button id="btn">Hide Odd Rows</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $("table tr:nth-child(odd)").hide(); // CSS selector used here
+            });
+
+        });
+    </script>
+
+
+</body>
+</html>
