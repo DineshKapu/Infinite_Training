@@ -173,7 +173,7 @@ namespace Miniproject
                 switch (choice)
                 {
                     case 1: BookTickets(userid); break;
-                    case 2: CancelTickets(); break;
+                    case 2: CancelTickets(userid); break;
                     case 3: return;
                     default: Console.WriteLine("Invalid choice."); break;
                 }
@@ -410,12 +410,17 @@ namespace Miniproject
                         Console.WriteLine("Not enough seats available.");
                         return;
                     }
+                    SqlCommand getPrice = new SqlCommand("select price from Trains where tno=@tno", con);
+                    getPrice.Parameters.AddWithValue("@tno", trainNumber);
+                    float price = Convert.ToSingle(getPrice.ExecuteScalar());
+                    float totalamount = price * seatsToBook;
 
-                    SqlCommand bookCmd = new SqlCommand("INSERT INTO Bookings (tno, userid, seats_booked, booking_date) VALUES (@tno, @userid, @seats_booked, @booking_date)", con);
+                    SqlCommand bookCmd = new SqlCommand("INSERT INTO Bookings (tno, userid, seats_booked, booking_date,total_amount) VALUES (@tno, @userid, @seats_booked, @booking_date,@total_amount)", con);
                     bookCmd.Parameters.AddWithValue("@tno", trainNumber);
                     bookCmd.Parameters.AddWithValue("@userid", userid);
                     bookCmd.Parameters.AddWithValue("@seats_booked", seatsToBook);
                     bookCmd.Parameters.AddWithValue("@booking_date", DateTime.Now);
+                    bookCmd.Parameters.AddWithValue("@total_amount", totalamount);
                     bookCmd.ExecuteNonQuery();
 
                     SqlCommand updateCmd = new SqlCommand("UPDATE Trains SET seats_available = seats_available - @seats_booked WHERE tno = @tno", con);
@@ -438,6 +443,7 @@ namespace Miniproject
                         Console.WriteLine($"User ID: {bookingReader["userid"]}");
                         Console.WriteLine($"Seats Booked: {bookingReader["seats_booked"]}");
                         Console.WriteLine($"Booking Date: {bookingReader["booking_date"]}");
+                        Console.WriteLine($"Total Amount: {bookingReader["total_amount"]}");
                     }
                     bookingReader.Close();
                 }
@@ -449,7 +455,7 @@ namespace Miniproject
         }
 
 
-        static void CancelTickets()
+        static void CancelTickets(int userid)
         {
             Console.Write("Enter Booking ID: ");
             int bookingId = Convert.ToInt32(Console.ReadLine());
@@ -459,8 +465,9 @@ namespace Miniproject
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                SqlCommand checkCmd = new SqlCommand("SELECT tno, seats_booked, booking_date FROM Bookings WHERE booking_id = @booking_id", con);
+                SqlCommand checkCmd = new SqlCommand("SELECT tno, seats_booked, booking_date FROM Bookings WHERE booking_id = @booking_id and userid=@userid", con);
                 checkCmd.Parameters.AddWithValue("@booking_id", bookingId);
+                checkCmd.Parameters.AddWithValue("@userid", userid);
                 SqlDataReader reader = checkCmd.ExecuteReader();
 
                 if (reader.Read())
@@ -475,14 +482,16 @@ namespace Miniproject
                         Console.WriteLine("Cannot cancel more seats than booked.");
                         return;
                     }
-
+                    SqlCommand getPrice = new SqlCommand("select price from Trains where tno=@tno", con);
+                    getPrice.Parameters.AddWithValue("@tno", trainNumber);
+                    float ticketprice = Convert.ToSingle(getPrice.ExecuteScalar());
                     TimeSpan timeBeforeTravel = bookingDate - DateTime.Now;
-                    decimal refundRate = 0;
-                    if (timeBeforeTravel.TotalDays > 90) refundRate = 0.50m;
-                    else if (timeBeforeTravel.TotalDays > 30) refundRate = 0.25m;
-                    else refundRate = 0.00m;
+                    float refundRate = 0;
+                    if (timeBeforeTravel.TotalDays > 90) refundRate = 0.50f;
+                    else if (timeBeforeTravel.TotalDays > 30) refundRate = 0.25f;
+                    else refundRate = 0.00f;
 
-                    decimal refundAmount = seatsToCancel * refundRate * 100;
+                    float refundAmount = ticketprice * refundRate * seatsToCancel;
 
                     SqlCommand cancelCmd = new SqlCommand("INSERT INTO Cancellations (booking_id, seats_cancelled, cancellation_date) VALUES (@booking_id, @seats_cancelled, @cancellation_date)", con);
                     cancelCmd.Parameters.AddWithValue("@booking_id", bookingId);

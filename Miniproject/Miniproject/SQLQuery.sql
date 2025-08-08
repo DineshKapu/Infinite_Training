@@ -42,7 +42,10 @@ CREATE TABLE Bookings (
     deleted BIT DEFAULT 0,
     FOREIGN KEY (tno) REFERENCES Trains(tno)
 );
+alter table bookings add total_amount float
+update b set b.total_amount=b.seats_booked*t.price from Bookings b join Trains t on b.tno=t.tno
 select * from Bookings
+
 CREATE TABLE Cancellations (
     cancellation_id INT PRIMARY KEY IDENTITY,
     booking_id INT,
