@@ -20,13 +20,13 @@ namespace MiniProject_Testing
         [TestCase("din", "dinesh@123")]//fail
         public void User_Should_See_Only_Their_Bookings(string username, string password)
         {
-            // Step 1: Authenticate user
+          
             AuthenticationService auth = new AuthenticationService(cstr);
             var (userid, role) = auth.AuthenticateUser(username, password);
 
             ClassicAssert.IsNotNull(userid, $"User '{username}' not found or password incorrect.");
 
-            // Step 2: Fetch bookings from DB
+           
             using (SqlConnection con = new SqlConnection(cstr))
             {
                 con.Open();
@@ -48,7 +48,7 @@ namespace MiniProject_Testing
                 }
             }
 
-            // Step 3: Call the actual service method (for manual verification)
+           
             UserService userService = new UserService(cstr);
             Console.WriteLine("\nOutput from UserService:");
             userService.ViewMyBookings(userid.Value);
