@@ -18,6 +18,7 @@ namespace MiniProject_Testing
 
         [TestCase("arthi", "arthi@123")]//pass
         [TestCase("din", "dinesh@123")]//fail
+        [TestCase("manohar","manu@123")]//pass
         public void User_Should_See_Only_Their_Bookings(string username, string password)
         {
           
