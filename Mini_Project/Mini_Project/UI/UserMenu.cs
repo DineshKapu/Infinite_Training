@@ -26,7 +26,8 @@ namespace Mini_Project.UI
                 Console.WriteLine("2. Cancel Tickets");
                 Console.WriteLine("3.View My Bookings");
                 Console.WriteLine("4.View My Cancellations");
-                Console.WriteLine("5. Logout");
+                Console.WriteLine("5.View Trains");
+                Console.WriteLine("6. Logout");
                 Console.Write("Enter your choice: ");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -46,6 +47,9 @@ namespace Mini_Project.UI
                         _bookingService.ViewMyCancellations(userId);
                         break;
                     case 5:
+                        _bookingService.DisplayTrainDetails();
+                        break;
+                    case 6:
                         return;
                     default:
                         Console.WriteLine("Invalid choice.");

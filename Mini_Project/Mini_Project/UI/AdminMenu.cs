@@ -28,7 +28,9 @@ namespace Mini_Project.UI
                 Console.WriteLine("4. Update Train");
                 Console.WriteLine("5. Delete Train");
                 Console.WriteLine("6. View Deleted Trains");
-                Console.WriteLine("7. Logout");
+                Console.WriteLine("7.ViewAndRestoreDeletedTrains");
+                Console.WriteLine("8.View Trains");
+                Console.WriteLine("9. Logout");
                 Console.Write("Enter your choice: ");
 
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -54,6 +56,12 @@ namespace Mini_Project.UI
                         _adminService.ViewDeletedTrains();
                         break;
                     case 7:
+                        _adminService.ViewAndRestoreDeletedTrains();
+                        break;
+                    case 8:
+                        _adminService.DisplayTrainDetails();
+                        break;
+                    case 9:
                         return;
                     default:
                         Console.WriteLine("Invalid choice.");

@@ -17,45 +17,64 @@ namespace Mini_Project.Services
 
         public (int?, string) AuthenticateUser(string username, string password)
         {
-            using (SqlConnection con = new SqlConnection(_connectionString))
+            try
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT userid, roles FROM Users WHERE username = @username AND password = @password", con);
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
-                SqlDataReader reader = cmd.ExecuteReader();
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT userid, roles FROM Users WHERE username = @username AND password = @password", con);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read())
-                {
-                    int userid = (int)reader["userid"];
-                    string role = reader["roles"].ToString();
-                    return (userid, role);
+                    if (reader.Read())
+                    {
+                        int userid = (int)reader["userid"];
+                        string role = reader["roles"].ToString();
+                        return (userid, role);
+                    }
+                    else
+                    {
+                        return (null, null);
+                    }
                 }
-                else
-                {
-                    return (null, null);
-                }
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine("Authentication Failed"+ex.Message);
+                return (null, null);
             }
         }
 
         public void RegisterUser()
         {
-            Console.Write("Enter Username: ");
-            string username = Console.ReadLine();
-            Console.Write("Enter Password: ");
-            string password = Console.ReadLine();
-            string role = "user";
-
-            using (SqlConnection con = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Users (username, password, roles) VALUES (@username, @password, @roles)", con);
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
-                cmd.Parameters.AddWithValue("@roles", role);
-                con.Open();
-                int rowsAffected = cmd.ExecuteNonQuery();
-                con.Close();
-                Console.WriteLine(rowsAffected > 0 ? "Registration successful. You can now login." : "Registration failed.");
+                Console.Write("Enter Username: ");
+                string username = Console.ReadLine();
+                Console.Write("Enter Password: ");
+                string password = Console.ReadLine();
+                string role = "user";
+
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Users (username, password, roles) VALUES (@username, @password, @roles)", con);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@roles", role);
+                    con.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    con.Close();
+                    Console.WriteLine(rowsAffected > 0 ? "Registration successful. You can now login." : "Registration failed.");
+                }
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine("Exception Caught in Register User Function"+ex.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Exception Caught"+ex.Message);
             }
         }
     }
