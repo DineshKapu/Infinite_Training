@@ -48,6 +48,7 @@ update b set b.total_amount=b.seats_booked*t.price from Bookings b join Trains t
 
 select * from Bookings
 
+
 CREATE TABLE Cancellations (
     cancellation_id INT PRIMARY KEY IDENTITY,
     booking_id INT,
@@ -58,6 +59,7 @@ CREATE TABLE Cancellations (
 );
 
 select * from Cancellations
+
 CREATE TABLE DeletedTrains (
     tno INT,
     tname VARCHAR(50),
@@ -71,3 +73,7 @@ CREATE TABLE DeletedTrains (
 );
 
 select * from DeletedTrains
+
+--ALTER TABLE Cancellations
+--DROP CONSTRAINT FK__Cancellat__booki__2F10007B;
+

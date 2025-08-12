@@ -37,6 +37,13 @@ namespace Mini_Project.Services
         {
             Console.Write("Enter Train Number: ");
             int trainNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter The  Date of Travel:(yyyy-mm-dd)");
+            string date = Console.ReadLine();
+            if(DateTime.Parse(date)<=DateTime.Now)
+            {
+                Console.WriteLine("You Cannot Enter past Date");
+                return;
+            }
             Console.Write("Enter number of seats to book (max 3): ");
             int seatsToBook = Convert.ToInt32(Console.ReadLine());
             if (seatsToBook > 3)
@@ -70,7 +77,7 @@ namespace Mini_Project.Services
                     bookCmd.Parameters.AddWithValue("@tno", trainNumber);
                     bookCmd.Parameters.AddWithValue("@userid", userid);
                     bookCmd.Parameters.AddWithValue("@seats_booked", seatsToBook);
-                    bookCmd.Parameters.AddWithValue("@booking_date", DateTime.Now);
+                    bookCmd.Parameters.AddWithValue("@booking_date", DateTime.Parse(date));
                     bookCmd.Parameters.AddWithValue("@total_amount", totalamount);
                     bookCmd.ExecuteNonQuery();
 
@@ -92,7 +99,7 @@ namespace Mini_Project.Services
                         Console.WriteLine($"Train No: {bookingReader["tno"]}");
                         Console.WriteLine($"User ID: {bookingReader["userid"]}");
                         Console.WriteLine($"Seats Booked: {bookingReader["seats_booked"]}");
-                        Console.WriteLine($"Booking Date: {bookingReader["booking_date"]}");
+                        Console.WriteLine($"Date of Travel: {bookingReader["booking_date"]}");
                         Console.WriteLine($"Total Amount: {bookingReader["total_amount"]}");
                     }
                     bookingReader.Close();
@@ -185,7 +192,7 @@ namespace Mini_Project.Services
                 {
                     while (reader.Read())
                     {
-                        Console.WriteLine($"Booking ID: {reader["booking_id"]}, Train No: {reader["tno"]}, Seats: {reader["seats_booked"]}, Date: {reader["booking_date"]}, Total Amount: {reader["total_amount"]}");
+                        Console.WriteLine($"Booking ID: {reader["booking_id"]}, Train No: {reader["tno"]}, Seats: {reader["seats_booked"]}, Date of Travel: {reader["booking_date"]}, Total Amount: {reader["total_amount"]}");
                     }
                 }
                 Console.WriteLine("--------------------------------------------------\n");
