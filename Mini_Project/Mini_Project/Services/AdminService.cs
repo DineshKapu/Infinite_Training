@@ -180,6 +180,16 @@ namespace Mini_Project.Services
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
                 con.Open();
+                SqlCommand checkBookingCmd = new SqlCommand(
+           "SELECT COUNT(*) FROM Bookings WHERE tno = @tno", con);
+                checkBookingCmd.Parameters.AddWithValue("@tno", trainNumber);
+                int bookingCount = (int)checkBookingCmd.ExecuteScalar();
+
+                if (bookingCount > 0)
+                {
+                    Console.WriteLine("Cannot delete this train because bookings exist for it.");
+                    return;
+                }
                 SqlCommand fetchCmd = new SqlCommand("SELECT * FROM Trains WHERE tno = @tno", con);
                 fetchCmd.Parameters.AddWithValue("@tno", trainNumber);
                 SqlDataReader reader = fetchCmd.ExecuteReader();
