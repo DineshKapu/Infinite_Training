@@ -163,7 +163,14 @@ namespace Electricity_Prj.Web
             var bills = board.Generate_N_BillDetails(n);
             gvBills.DataSource = bills;
             gvBills.DataBind();
-            lblSummary.Text = $"Details of last {bills.Count} bill(s):<br/>";
+            if (bills.Count < n)
+            {
+                lblSummary.Text = $"Only {bills.Count} bill(s) are available in the Database.<br/> Details of last {bills.Count} bill(s):<br/>";
+            }
+            else
+            {
+                lblSummary.Text = $"Details of last {bills.Count} bill(s):<br/>";
+            }
             StringBuilder sb = new StringBuilder();
             foreach (var i in bills)
             {
@@ -172,5 +179,11 @@ namespace Electricity_Prj.Web
             litDetails.Text = sb.ToString();
         }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

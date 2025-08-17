@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Web/Site.Master" AutoEventWireup="true" CodeBehind="Billing.aspx.cs" Inherits="Electricity_Prj.Web.Billing" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<div class="logout-container">
+    <asp:Button runat="server" ID="btnLogout" Text="Logout" CssClass="logout-btn" OnClick="btnLogout_Click"  OnClientClick="return confirm('Are you sure ! you want to Logout?');"/>
+</div>
     <h2>Bill Entry</h2>
     <asp:Label runat="server" ID="lblMsg"  CssClass="message-label" />
     <br />

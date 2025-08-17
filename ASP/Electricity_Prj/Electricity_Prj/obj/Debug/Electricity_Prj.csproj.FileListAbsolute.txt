@@ -52,7 +52,6 @@ C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\bin\roslyn\VBCSCompiler
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\bin\roslyn\VBCSCompiler.exe.config
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_Prj.csproj.AssemblyReference.cache
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_Prj.csproj.CoreCompileInputs.cache
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_Prj.csproj.CopyComplete
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_Prj.dll
