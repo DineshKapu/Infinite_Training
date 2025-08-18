@@ -56,3 +56,4 @@ C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_P
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_Prj.csproj.CopyComplete
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_Prj.dll
 C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_Prj.pdb
+C:\Infinite_Training\ASP\Electricity_Prj\Electricity_Prj\obj\Debug\Electricity_Prj.csproj.AssemblyReference.cache

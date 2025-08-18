@@ -29,7 +29,7 @@ namespace Electricity_Prj.Web
                 lblMsg.CssClass = "message-label error";
 
             }
-            else if (txtUser.Text == p)
+            else if (txtPass.Text==p)
             {
                 lblMsg.Text = "Invalid Username";
                 lblMsg.CssClass = "message-label error";
