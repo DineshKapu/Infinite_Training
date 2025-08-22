@@ -14,7 +14,7 @@ namespace Custom_Validations_Prj.CustomValidations
             int age = today.Year - dob.Year;
             if (dob > today.AddYears(-age)) age--;
 
-            if (age >= 21 && age <= 25)
+            if (age >21 && age < 25)
                 return ValidationResult.Success;
             else
                 return new ValidationResult(ErrorMessage);

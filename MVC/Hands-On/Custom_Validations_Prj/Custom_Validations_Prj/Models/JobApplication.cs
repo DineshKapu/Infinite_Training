@@ -60,6 +60,7 @@ namespace Custom_Validations_Prj.Models
 
 
         [Display(Name = "Password")]
+        [DataType(DataType.Password)]
         [PasswordValidation(ErrorMessage = "Password must start with an uppercase letter, followed by a digit, and then any 5 characters")]
         public string Password { get; set; }
 
