@@ -4,11 +4,18 @@
 }
 
 <h2>Delete Movie</h2>
-<form method="post">
-    <input type="hidden" name="Mid" value="@Model.MovieId" />
-    <p>Are you sure you want to delete <strong>@Model.MovieName</strong>?</p>
-    <input type="submit" value="Delete" />
-</form>
 
+<h3>Are you sure you want to delete this movie?</h3>
 
+<div>
+    <strong>@Model.MovieName</strong> by <strong>@Model.DirectorName</strong> released on <strong>@Model.DateOfRelease.ToShortDateString()</strong>
+</div>
 
+@using (Html.BeginForm("Delete", "Movie", new { id = Model.MovieId }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.MovieId)
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-secondary" })
+}

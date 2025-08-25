@@ -185,6 +185,8 @@
     <Content Include="Views\Movie\Delete.cshtml" />
     <Content Include="Views\Movie\MoviesByYear.cshtml" />
     <Content Include="Views\Movie\MoviesByDirector.cshtml" />
+    <Content Include="Views\Movie\SearchByDirector.cshtml" />
+    <Content Include="Views\Movie\SearchByYear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

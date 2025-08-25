@@ -4,11 +4,27 @@
 }
 
 <h2>Edit Movie</h2>
-<form method="post">
-    <input type="hidden" name="Mid" value="@Model.MovieId" />
-    <p>Movie Name: <input type="text" name="Moviename" value="@Model.MovieName" /></p>
-    <p>Director Name: <input type="text" name="DirectorName" value="@Model.DirectorName" /></p>
-    <p>Date of Release: <input type="date" name="DateofRelease" value="@Model.DateOfRelease.ToString("yyyy-MM-dd")" /></p>
-    <input type="submit" value="Save" />
-</form>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.MovieId)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MovieName)
+        @Html.TextBoxFor(m => m.MovieName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DirectorName)
+        @Html.TextBoxFor(m => m.DirectorName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfRelease)
+        @Html.TextBoxFor(m => m.DateOfRelease, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
 

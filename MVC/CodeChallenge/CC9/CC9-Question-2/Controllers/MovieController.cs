@@ -20,28 +20,79 @@ namespace CC9_Question_2.Controllers
         [HttpPost]
         public ActionResult Create(Movie movie)
         {
-            repo.Add(movie);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                repo.Add(movie);
+                return RedirectToAction("Index");
+            }
+            return View(movie);
         }
 
         public ActionResult Edit(int id) => View(repo.GetById(id));
         [HttpPost]
         public ActionResult Edit(Movie movie)
         {
-            repo.Update(movie);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                repo.Update(movie);
+                return RedirectToAction("Index");
+            }
+            return View(movie);
         }
 
-        public ActionResult Delete(int id) => View(repo.GetById(id));
+        public ActionResult Delete(int id)
+        {
+            var movie = repo.GetById(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
+
+
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             repo.Delete(id);
             return RedirectToAction("Index");
         }
 
-        public ActionResult MoviesByYear(int year) => View(repo.GetByYear(year));
-        public ActionResult MoviesByDirector(string directorName) => View(repo.GetByDirector(directorName));
+        public ActionResult SearchByYear()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchByYear(int year)
+        {
+            return RedirectToAction("MoviesByYear", new { year });
+        }
+        public ActionResult MoviesByYear(int year)
+        {
+            var movies = repo.GetByYear(year);
+            ViewBag.Year = year;
+            return View(movies);
+        }
+
+        public ActionResult SearchByDirector()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchByDirector(string directorName)
+        {
+            return RedirectToAction("MoviesByDirector", new { directorName });
+        }
+
+        public ActionResult MoviesByDirector(string directorName)
+        {
+            var movies = repo.GetByDirector(directorName);
+            ViewBag.Director = directorName;
+            return View(movies);
+        }
 
     }
 }

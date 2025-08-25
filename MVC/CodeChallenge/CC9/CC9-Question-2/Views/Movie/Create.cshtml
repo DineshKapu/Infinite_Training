@@ -4,12 +4,27 @@
 }
 
 <h2>Create Movie</h2>
-<form method="post">
-    <p>Movie Name: <input type="text" name="Moviename" /></p>
-    <p>Director Name: <input type="text" name="DirectorName" /></p>
-    <p>Date of Release: <input type="date" name="DateofRelease" /></p>
-    <input type="submit" value="Create" />
-</form>
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MovieName)
+        @Html.TextBoxFor(m => m.MovieName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DirectorName)
+        @Html.TextBoxFor(m => m.DirectorName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfRelease)
+        @Html.TextBoxFor(m => m.DateOfRelease, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
 
 
