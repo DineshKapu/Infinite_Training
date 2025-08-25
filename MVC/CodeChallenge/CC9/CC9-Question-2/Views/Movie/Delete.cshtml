@@ -1,0 +1,14 @@
+﻿@model CC9_Question_2.Models.Movie
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Movie</h2>
+<form method="post">
+    <input type="hidden" name="Mid" value="@Model.MovieId" />
+    <p>Are you sure you want to delete <strong>@Model.MovieName</strong>?</p>
+    <input type="submit" value="Delete" />
+</form>
+
+
+

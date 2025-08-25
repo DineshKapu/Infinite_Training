@@ -1,0 +1,14 @@
+﻿@model IEnumerable<CC9_Question_2.Models.Movie>
+@{
+    ViewBag.Title = "MoviesByDirector";
+}
+
+<h2>MoviesByDirector</h2>
+<ul>
+    @foreach (var movie in Model)
+    {
+        <li>@movie.MovieName-@movie.DateOfRelease.ToShortDateString()</li>
+    }
+</ul>
+
+

@@ -1,0 +1,14 @@
+﻿@model CC9_Question_2.Models.Movie
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Movie</h2>
+<form method="post">
+    <input type="hidden" name="Mid" value="@Model.MovieId" />
+    <p>Movie Name: <input type="text" name="Moviename" value="@Model.MovieName" /></p>
+    <p>Director Name: <input type="text" name="DirectorName" value="@Model.DirectorName" /></p>
+    <p>Date of Release: <input type="date" name="DateofRelease" value="@Model.DateOfRelease.ToString("yyyy-MM-dd")" /></p>
+    <input type="submit" value="Save" />
+</form>
+

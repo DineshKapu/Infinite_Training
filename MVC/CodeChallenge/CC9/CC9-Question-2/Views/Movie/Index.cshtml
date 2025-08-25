@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CC9_Question_2.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h2>All Movies</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Movie Name</th>
+            <th>Director Name</th>
+            <th>Date of Release</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MovieName</td>
+                <td>@item.DirectorName</td>
+                <td>@item.DateOfRelease</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }, new { @class = "btn btn-primary btn-sm" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieId }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
