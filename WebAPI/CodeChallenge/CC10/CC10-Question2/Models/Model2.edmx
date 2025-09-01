@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="NorthwindModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -345,6 +345,14 @@ warning 6002: The table/view 'Northwind.dbo.Products by Category' does not have 
           <Property Name="Discontinued" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Northwind.dbo.Quarterly Orders' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Quarterly Orders">
+          <Property Name="CustomerID" Type="nchar" MaxLength="5" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="40" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Northwind.dbo.Sales by Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Sales by Category">
           <Key>
@@ -570,7 +578,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
           <Parameter Name="OrdYear" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="Ten_Most_Expensive_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Ten Most Expensive Products" />
-        <EntityContainer Name="NorthwindModelStoreContainer">
+        <EntityContainer Name="NorthwindModel1StoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerCustomerDemo" EntityType="Self.CustomerCustomerDemo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerDemographics" EntityType="Self.CustomerDemographics" Schema="dbo" store:Type="Tables" />
@@ -795,10 +803,11 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             <End Role="Territories" EntitySet="Territories" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="NorthwindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="NorthwindModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -1275,7 +1284,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
           <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
           <End Role="Territories" Type="Self.Territory" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NorthwindEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="CustomerDemographics" EntityType="Self.CustomerDemographic" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -1346,31 +1355,31 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Territories" EntitySet="Territories" />
           </AssociationSet>
-          <FunctionImport Name="CustOrderHist" ReturnType="Collection(NorthwindModel.CustOrderHist_Result)">
-          <Parameter Name="CustomerID" Mode="In" Type="String" />
+          <FunctionImport Name="CustOrderHist" ReturnType="Collection(NorthwindModel1.CustOrderHist_Result)">
+            <Parameter Name="CustomerID" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="CustOrdersDetail" ReturnType="Collection(NorthwindModel.CustOrdersDetail_Result)">
-          <Parameter Name="OrderID" Mode="In" Type="Int32" />
+          <FunctionImport Name="CustOrdersDetail" ReturnType="Collection(NorthwindModel1.CustOrdersDetail_Result)">
+            <Parameter Name="OrderID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="CustOrdersOrders" ReturnType="Collection(NorthwindModel.CustOrdersOrders_Result)">
-          <Parameter Name="CustomerID" Mode="In" Type="String" />
+          <FunctionImport Name="CustOrdersOrders" ReturnType="Collection(NorthwindModel1.CustOrdersOrders_Result)">
+            <Parameter Name="CustomerID" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Employee_Sales_by_Country" ReturnType="Collection(NorthwindModel.Employee_Sales_by_Country_Result)">
+          <FunctionImport Name="Employee_Sales_by_Country" ReturnType="Collection(NorthwindModel1.Employee_Sales_by_Country_Result)">
             <Parameter Name="Beginning_Date" Mode="In" Type="DateTime" />
             <Parameter Name="Ending_Date" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="Sales_by_Year" ReturnType="Collection(NorthwindModel.Sales_by_Year_Result)">
+          <FunctionImport Name="GetCustomersByCountry" ReturnType="Collection(NorthwindModel1.GetCustomersByCountry_Result)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sales_by_Year" ReturnType="Collection(NorthwindModel1.Sales_by_Year_Result)">
             <Parameter Name="Beginning_Date" Mode="In" Type="DateTime" />
             <Parameter Name="Ending_Date" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="SalesByCategory" ReturnType="Collection(NorthwindModel.SalesByCategory_Result)">
+          <FunctionImport Name="SalesByCategory" ReturnType="Collection(NorthwindModel1.SalesByCategory_Result)">
             <Parameter Name="CategoryName" Mode="In" Type="String" />
             <Parameter Name="OrdYear" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Ten_Most_Expensive_Products" ReturnType="Collection(NorthwindModel.Ten_Most_Expensive_Products_Result)" />
-          <FunctionImport Name="GetCustomersByCountry" ReturnType="Collection(NorthwindModel.GetCustomersByCountry_Result)">
-          <Parameter Name="Country" Mode="In" Type="String" />
-          </FunctionImport>
+          <FunctionImport Name="Ten_Most_Expensive_Products" ReturnType="Collection(NorthwindModel1.Ten_Most_Expensive_Products_Result)" />
         </EntityContainer>
         <ComplexType Name="CustOrderHist_Result">
           <Property Type="String" Name="ProductName" Nullable="false" MaxLength="40" />
@@ -1397,6 +1406,19 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
           <Property Type="Int32" Name="OrderID" Nullable="false" />
           <Property Type="Decimal" Name="SaleAmount" Nullable="true" Precision="19" />
         </ComplexType>
+        <ComplexType Name="GetCustomersByCountry_Result">
+          <Property Type="String" Name="CustomerID" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="ContactName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ContactTitle" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="24" />
+          <Property Type="String" Name="Fax" Nullable="true" MaxLength="24" />
+        </ComplexType>
         <ComplexType Name="Sales_by_Year_Result">
           <Property Type="DateTime" Name="ShippedDate" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="OrderID" Nullable="false" />
@@ -1411,27 +1433,14 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
           <Property Type="String" Name="TenMostExpensiveProducts" Nullable="false" MaxLength="40" />
           <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
         </ComplexType>
-        <ComplexType Name="GetCustomersByCountry_Result">
-          <Property Type="String" Name="CustomerID" Nullable="false" MaxLength="5" />
-          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="40" />
-          <Property Type="String" Name="ContactName" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="ContactTitle" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
-          <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="Phone" Nullable="true" MaxLength="24" />
-          <Property Type="String" Name="Fax" Nullable="true" MaxLength="24" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
+        <EntityContainerMapping StorageEntityContainer="NorthwindModel1StoreContainer" CdmEntityContainer="NorthwindEntities1">
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="NorthwindModel.Category">
+            <EntityTypeMapping TypeName="NorthwindModel1.Category">
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -1441,7 +1450,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerDemographics">
-            <EntityTypeMapping TypeName="NorthwindModel.CustomerDemographic">
+            <EntityTypeMapping TypeName="NorthwindModel1.CustomerDemographic">
               <MappingFragment StoreEntitySet="CustomerDemographics">
                 <ScalarProperty Name="CustomerTypeID" ColumnName="CustomerTypeID" />
                 <ScalarProperty Name="CustomerDesc" ColumnName="CustomerDesc" />
@@ -1449,7 +1458,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="NorthwindModel.Customer">
+            <EntityTypeMapping TypeName="NorthwindModel1.Customer">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
@@ -1466,7 +1475,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="NorthwindModel.Employee">
+            <EntityTypeMapping TypeName="NorthwindModel1.Employee">
               <MappingFragment StoreEntitySet="Employees">
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1490,7 +1499,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order_Details">
-            <EntityTypeMapping TypeName="NorthwindModel.Order_Detail">
+            <EntityTypeMapping TypeName="NorthwindModel1.Order_Detail">
               <MappingFragment StoreEntitySet="Order Details">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -1501,7 +1510,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="NorthwindModel.Order">
+            <EntityTypeMapping TypeName="NorthwindModel1.Order">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -1521,7 +1530,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="NorthwindModel.Product">
+            <EntityTypeMapping TypeName="NorthwindModel1.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -1537,7 +1546,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Regions">
-            <EntityTypeMapping TypeName="NorthwindModel.Region">
+            <EntityTypeMapping TypeName="NorthwindModel1.Region">
               <MappingFragment StoreEntitySet="Region">
                 <ScalarProperty Name="RegionID" ColumnName="RegionID" />
                 <ScalarProperty Name="RegionDescription" ColumnName="RegionDescription" />
@@ -1545,7 +1554,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Shippers">
-            <EntityTypeMapping TypeName="NorthwindModel.Shipper">
+            <EntityTypeMapping TypeName="NorthwindModel1.Shipper">
               <MappingFragment StoreEntitySet="Shippers">
                 <ScalarProperty Name="ShipperID" ColumnName="ShipperID" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
@@ -1554,7 +1563,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Suppliers">
-            <EntityTypeMapping TypeName="NorthwindModel.Supplier">
+            <EntityTypeMapping TypeName="NorthwindModel1.Supplier">
               <MappingFragment StoreEntitySet="Suppliers">
                 <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
@@ -1572,7 +1581,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Territories">
-            <EntityTypeMapping TypeName="NorthwindModel.Territory">
+            <EntityTypeMapping TypeName="NorthwindModel1.Territory">
               <MappingFragment StoreEntitySet="Territories">
                 <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
                 <ScalarProperty Name="TerritoryDescription" ColumnName="TerritoryDescription" />
@@ -1581,7 +1590,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Alphabetical_list_of_products">
-            <EntityTypeMapping TypeName="NorthwindModel.Alphabetical_list_of_product">
+            <EntityTypeMapping TypeName="NorthwindModel1.Alphabetical_list_of_product">
               <MappingFragment StoreEntitySet="Alphabetical list of products">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -1598,7 +1607,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Category_Sales_for_1997">
-            <EntityTypeMapping TypeName="NorthwindModel.Category_Sales_for_1997">
+            <EntityTypeMapping TypeName="NorthwindModel1.Category_Sales_for_1997">
               <MappingFragment StoreEntitySet="Category Sales for 1997">
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="CategorySales" ColumnName="CategorySales" />
@@ -1606,7 +1615,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Current_Product_Lists">
-            <EntityTypeMapping TypeName="NorthwindModel.Current_Product_List">
+            <EntityTypeMapping TypeName="NorthwindModel1.Current_Product_List">
               <MappingFragment StoreEntitySet="Current Product List">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -1614,7 +1623,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customer_and_Suppliers_by_Cities">
-            <EntityTypeMapping TypeName="NorthwindModel.Customer_and_Suppliers_by_City">
+            <EntityTypeMapping TypeName="NorthwindModel1.Customer_and_Suppliers_by_City">
               <MappingFragment StoreEntitySet="Customer and Suppliers by City">
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
@@ -1624,7 +1633,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Invoices">
-            <EntityTypeMapping TypeName="NorthwindModel.Invoice">
+            <EntityTypeMapping TypeName="NorthwindModel1.Invoice">
               <MappingFragment StoreEntitySet="Invoices">
                 <ScalarProperty Name="ShipName" ColumnName="ShipName" />
                 <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
@@ -1656,7 +1665,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order_Details_Extendeds">
-            <EntityTypeMapping TypeName="NorthwindModel.Order_Details_Extended">
+            <EntityTypeMapping TypeName="NorthwindModel1.Order_Details_Extended">
               <MappingFragment StoreEntitySet="Order Details Extended">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -1669,7 +1678,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order_Subtotals">
-            <EntityTypeMapping TypeName="NorthwindModel.Order_Subtotal">
+            <EntityTypeMapping TypeName="NorthwindModel1.Order_Subtotal">
               <MappingFragment StoreEntitySet="Order Subtotals">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
@@ -1677,7 +1686,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders_Qries">
-            <EntityTypeMapping TypeName="NorthwindModel.Orders_Qry">
+            <EntityTypeMapping TypeName="NorthwindModel1.Orders_Qry">
               <MappingFragment StoreEntitySet="Orders Qry">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -1703,7 +1712,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product_Sales_for_1997">
-            <EntityTypeMapping TypeName="NorthwindModel.Product_Sales_for_1997">
+            <EntityTypeMapping TypeName="NorthwindModel1.Product_Sales_for_1997">
               <MappingFragment StoreEntitySet="Product Sales for 1997">
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -1712,7 +1721,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products_Above_Average_Prices">
-            <EntityTypeMapping TypeName="NorthwindModel.Products_Above_Average_Price">
+            <EntityTypeMapping TypeName="NorthwindModel1.Products_Above_Average_Price">
               <MappingFragment StoreEntitySet="Products Above Average Price">
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
@@ -1720,7 +1729,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products_by_Categories">
-            <EntityTypeMapping TypeName="NorthwindModel.Products_by_Category">
+            <EntityTypeMapping TypeName="NorthwindModel1.Products_by_Category">
               <MappingFragment StoreEntitySet="Products by Category">
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -1731,7 +1740,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sales_by_Categories">
-            <EntityTypeMapping TypeName="NorthwindModel.Sales_by_Category">
+            <EntityTypeMapping TypeName="NorthwindModel1.Sales_by_Category">
               <MappingFragment StoreEntitySet="Sales by Category">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -1741,7 +1750,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sales_Totals_by_Amounts">
-            <EntityTypeMapping TypeName="NorthwindModel.Sales_Totals_by_Amount">
+            <EntityTypeMapping TypeName="NorthwindModel1.Sales_Totals_by_Amount">
               <MappingFragment StoreEntitySet="Sales Totals by Amount">
                 <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
@@ -1751,7 +1760,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Summary_of_Sales_by_Quarters">
-            <EntityTypeMapping TypeName="NorthwindModel.Summary_of_Sales_by_Quarter">
+            <EntityTypeMapping TypeName="NorthwindModel1.Summary_of_Sales_by_Quarter">
               <MappingFragment StoreEntitySet="Summary of Sales by Quarter">
                 <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
@@ -1760,7 +1769,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Summary_of_Sales_by_Years">
-            <EntityTypeMapping TypeName="NorthwindModel.Summary_of_Sales_by_Year">
+            <EntityTypeMapping TypeName="NorthwindModel1.Summary_of_Sales_by_Year">
               <MappingFragment StoreEntitySet="Summary of Sales by Year">
                 <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
@@ -1768,7 +1777,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="CustomerCustomerDemo" TypeName="NorthwindModel.CustomerCustomerDemo" StoreEntitySet="CustomerCustomerDemo">
+          <AssociationSetMapping Name="CustomerCustomerDemo" TypeName="NorthwindModel1.CustomerCustomerDemo" StoreEntitySet="CustomerCustomerDemo">
             <EndProperty Name="CustomerDemographics">
               <ScalarProperty Name="CustomerTypeID" ColumnName="CustomerTypeID" />
             </EndProperty>
@@ -1776,7 +1785,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
               <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="EmployeeTerritories" TypeName="NorthwindModel.EmployeeTerritories" StoreEntitySet="EmployeeTerritories">
+          <AssociationSetMapping Name="EmployeeTerritories" TypeName="NorthwindModel1.EmployeeTerritories" StoreEntitySet="EmployeeTerritories">
             <EndProperty Name="Employees">
               <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
             </EndProperty>
@@ -1784,17 +1793,17 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
               <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="CustOrderHist" FunctionName="NorthwindModel.Store.CustOrderHist">
+          <FunctionImportMapping FunctionImportName="CustOrderHist" FunctionName="NorthwindModel1.Store.CustOrderHist">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="NorthwindModel.CustOrderHist_Result">
+              <ComplexTypeMapping TypeName="NorthwindModel1.CustOrderHist_Result">
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="CustOrdersDetail" FunctionName="NorthwindModel.Store.CustOrdersDetail">
+          <FunctionImportMapping FunctionImportName="CustOrdersDetail" FunctionName="NorthwindModel1.Store.CustOrdersDetail">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="NorthwindModel.CustOrdersDetail_Result">
+              <ComplexTypeMapping TypeName="NorthwindModel1.CustOrdersDetail_Result">
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -1803,9 +1812,9 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="CustOrdersOrders" FunctionName="NorthwindModel.Store.CustOrdersOrders">
+          <FunctionImportMapping FunctionImportName="CustOrdersOrders" FunctionName="NorthwindModel1.Store.CustOrdersOrders">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="NorthwindModel.CustOrdersOrders_Result">
+              <ComplexTypeMapping TypeName="NorthwindModel1.CustOrdersOrders_Result">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
                 <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
@@ -1813,9 +1822,9 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Employee_Sales_by_Country" FunctionName="NorthwindModel.Store.Employee_Sales_by_Country">
+          <FunctionImportMapping FunctionImportName="Employee_Sales_by_Country" FunctionName="NorthwindModel1.Store.Employee_Sales_by_Country">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="NorthwindModel.Employee_Sales_by_Country_Result">
+              <ComplexTypeMapping TypeName="NorthwindModel1.Employee_Sales_by_Country_Result">
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1825,35 +1834,9 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Sales_by_Year" FunctionName="NorthwindModel.Store.Sales_by_Year">
+          <FunctionImportMapping FunctionImportName="GetCustomersByCountry" FunctionName="NorthwindModel1.Store.GetCustomersByCountry">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="NorthwindModel.Sales_by_Year_Result">
-                <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SalesByCategory" FunctionName="NorthwindModel.Store.SalesByCategory">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="NorthwindModel.SalesByCategory_Result">
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="TotalPurchase" ColumnName="TotalPurchase" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Ten_Most_Expensive_Products" FunctionName="NorthwindModel.Store.Ten_Most_Expensive_Products">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="NorthwindModel.Ten_Most_Expensive_Products_Result">
-                <ScalarProperty Name="TenMostExpensiveProducts" ColumnName="TenMostExpensiveProducts" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCustomersByCountry" FunctionName="NorthwindModel.Store.GetCustomersByCountry">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="NorthwindModel.GetCustomersByCountry_Result">
+              <ComplexTypeMapping TypeName="NorthwindModel1.GetCustomersByCountry_Result">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="ContactName" ColumnName="ContactName" />
@@ -1865,6 +1848,32 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Fax" ColumnName="Fax" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sales_by_Year" FunctionName="NorthwindModel1.Store.Sales_by_Year">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NorthwindModel1.Sales_by_Year_Result">
+                <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SalesByCategory" FunctionName="NorthwindModel1.Store.SalesByCategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NorthwindModel1.SalesByCategory_Result">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="TotalPurchase" ColumnName="TotalPurchase" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Ten_Most_Expensive_Products" FunctionName="NorthwindModel1.Store.Ten_Most_Expensive_Products">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NorthwindModel1.Ten_Most_Expensive_Products_Result">
+                <ScalarProperty Name="TenMostExpensiveProducts" ColumnName="TenMostExpensiveProducts" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -86,6 +86,5 @@ C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10-Question2\obj\Debug\CC10-Que
 C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10-Question2\obj\Debug\CC10-Question2.csproj.CopyComplete
 C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10-Question2\obj\Debug\CC10-Question2.dll
 C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10-Question2\obj\Debug\CC10-Question2.pdb
-C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10-Question2\obj\Debug\CC10-Question2.csproj.AssemblyReference.cache
 C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10-Question2\bin\Swashbuckle.Core.dll
 C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10-Question2\bin\WebActivatorEx.dll

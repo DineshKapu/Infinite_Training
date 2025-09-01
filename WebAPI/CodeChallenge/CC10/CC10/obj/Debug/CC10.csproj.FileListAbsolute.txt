@@ -86,3 +86,6 @@ C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10\obj\Debug\CC10.csproj.CoreCo
 C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10\obj\Debug\CC10.csproj.CopyComplete
 C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10\obj\Debug\CC10.dll
 C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10\obj\Debug\CC10.pdb
+C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10\bin\Swashbuckle.Core.dll
+C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10\bin\WebActivatorEx.dll
+C:\Infinite_Training\WebAPI\CodeChallenge\CC10\CC10\obj\Debug\CC10.csproj.AssemblyReference.cache

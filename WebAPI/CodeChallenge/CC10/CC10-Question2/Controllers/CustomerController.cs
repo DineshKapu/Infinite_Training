@@ -10,22 +10,21 @@ namespace CC10_Question2.Controllers
 {
     public class CustomerController : ApiController
     {
-        private NorthwindEntities db = new NorthwindEntities();
+        private NorthwindEntities1 db = new NorthwindEntities1();
         [HttpGet]
-        [Route("getCustomersByCountry")]
+        [Route("country")]
         public IHttpActionResult GetCustomersByCountry(string country)
         {
-            var countryList = db.GetCustomersByCountry(country);
-            if (countryList == null || countryList.Count() == 0)
-                return NotFound();
-            return Ok(countryList);
+            var customers = db.GetCustomersByCountry(country);
+            return Ok(customers);
+
         }
 
         [HttpGet]
         [Route("getOrdersById")]
         public IHttpActionResult GetOrders(int empId)
         {
-            var orders = db.Orders.Where(o => o.EmployeeID == empId);
+            var orders = db.Orders.Where(o => o.EmployeeID == empId).ToList();
             if (orders == null || orders.Count() == 0)
                 return NotFound();
             return Ok(orders);

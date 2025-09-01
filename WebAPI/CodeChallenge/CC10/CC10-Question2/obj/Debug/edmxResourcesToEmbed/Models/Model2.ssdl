@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="NorthwindModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Categories">
     <Key>
       <PropertyRef Name="CategoryID" />
@@ -340,6 +340,14 @@ warning 6002: The table/view 'Northwind.dbo.Products by Category' does not have 
     <Property Name="Discontinued" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6013: The table/view 'Northwind.dbo.Quarterly Orders' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Quarterly Orders">
+          <Property Name="CustomerID" Type="nchar" MaxLength="5" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="40" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'Northwind.dbo.Sales by Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Sales by Category">
     <Key>
@@ -565,7 +573,7 @@ warning 6002: The table/view 'Northwind.dbo.Summary of Sales by Year' does not h
     <Parameter Name="OrdYear" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="Ten_Most_Expensive_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Ten Most Expensive Products" />
-  <EntityContainer Name="NorthwindModelStoreContainer">
+  <EntityContainer Name="NorthwindModel1StoreContainer">
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerCustomerDemo" EntityType="Self.CustomerCustomerDemo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CustomerDemographics" EntityType="Self.CustomerDemographics" Schema="dbo" store:Type="Tables" />
